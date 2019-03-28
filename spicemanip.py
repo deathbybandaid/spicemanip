@@ -5,7 +5,7 @@ import random
 
 
 # Hub
-def spicemanip_main(inputs, outputtask, output_type='default'):
+def main(inputs, outputtask, output_type='default'):
 
     # TODO 'this*that' or '1*that' replace either all strings matching, or an index value
     # TODO reverse sort z.sort(reverse = True)
@@ -328,3 +328,7 @@ def spicemanip_excrange_minus(inputs, outputtask, mainoutputtask, suboutputtask)
     if inputs == []:
         return ''
     return spicemanip_rangebetween(inputs, outputtask, 1, int(mainoutputtask) - 1)
+
+
+if __name__ == '__main__':
+    main(inputs, outputtask, output_type='default')
