@@ -3,7 +3,7 @@
 import random
 
 
-def main(bot, inputs, outputtask, output_type='default'):
+def main(inputs, outputtask, output_type='default'):
 
     mainoutputtask, suboutputtask = None, None
 
@@ -63,7 +63,7 @@ def main(bot, inputs, outputtask, output_type='default'):
     if outputtask == 'string':
         returnvalue = inputs
     else:
-        returnvalue = eval(outputtask + '(bot, inputs, outputtask, mainoutputtask, suboutputtask)')
+        returnvalue = eval(outputtask + '(inputs, outputtask, mainoutputtask, suboutputtask)')
 
     # default return if not specified
     if output_type == 'default':
@@ -90,7 +90,7 @@ def main(bot, inputs, outputtask, output_type='default'):
 
 
 # compare 2 lists, based on the location of an index item, passthrough needs to be [indexitem, arraytoindex, arraytocompare]
-def index(bot, indexitem, outputtask, arraytoindex, arraytocompare):
+def index(indexitem, outputtask, arraytoindex, arraytocompare):
     item = ''
     for x, y in zip(arraytoindex, arraytocompare):
         if x == indexitem:
@@ -99,7 +99,7 @@ def index(bot, indexitem, outputtask, arraytoindex, arraytocompare):
 
 
 # split list by string
-def split(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def split(inputs, outputtask, mainoutputtask, suboutputtask):
     split_array = []
     restring = ' '.join(inputs)
     if mainoutputtask not in inputs:
@@ -114,7 +114,7 @@ def split(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # dedupe list
-def dedupe(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def dedupe(inputs, outputtask, mainoutputtask, suboutputtask):
     newlist = []
     for inputspart in inputs:
         if inputspart not in newlist:
@@ -123,17 +123,17 @@ def dedupe(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # Sort list
-def sort(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def sort(inputs, outputtask, mainoutputtask, suboutputtask):
     return sorted(inputs)
 
 
 # reverse sort list
-def rsort(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def rsort(inputs, outputtask, mainoutputtask, suboutputtask):
     return sorted(inputs)[::-1]
 
 
 # count items in list, return dictionary
-def count(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def count(inputs, outputtask, mainoutputtask, suboutputtask):
     returndict = dict()
     if inputs == []:
         return returndict
@@ -153,7 +153,7 @@ def count(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # rand item from list
-def rand(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def rand(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     randselectlist = []
@@ -168,51 +168,51 @@ def rand(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # remove rand item from list
-def exrand(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def exrand(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return []
-    randremove = rand(bot, inputs, outputtask, mainoutputtask, suboutputtask)
+    randremove = rand(inputs, outputtask, mainoutputtask, suboutputtask)
     inputs.remove(randremove)
     return inputs
 
 
 # Convert list into lowercase
-def lower(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def lower(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return [inputspart.lower() for inputspart in inputs]
 
 
 # Convert list to uppercase
-def upper(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def upper(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return [inputspart.upper() for inputspart in inputs]
 
 
 # Convert list to uppercase
-def title(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def title(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return [inputspart.title() for inputspart in inputs]
 
 
 # Reverse List Order
-def reverse(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def reverse(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return []
     return inputs[::-1]
 
 
 # comma seperated list
-def list(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def list(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return ', '.join(str(x) for x in inputs)
 
 
 # comma seperated list with and
-def andlist(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def andlist(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     if len(inputs) < 2:
@@ -226,7 +226,7 @@ def andlist(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # comma seperated list with or
-def orlist(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def orlist(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     if len(inputs) < 2:
@@ -240,7 +240,7 @@ def orlist(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # exclude number
-def exclude(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def exclude(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     del inputs[int(mainoutputtask) - 1]
@@ -248,14 +248,14 @@ def exclude(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # Convert list to string
-def string(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def string(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return ' '.join(inputs)
 
 
 # Get number item from list
-def number(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def number(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     elif len(inputs) == 1:
@@ -267,21 +267,21 @@ def number(bot, inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 # Get Last item from list
-def last(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def last(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return inputs[len(inputs) - 1]
 
 
 # range between items in list
-def rangebetween(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def rangebetween(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     if not str(mainoutputtask).isdigit() or not str(suboutputtask).isdigit():
         return ''
     mainoutputtask, suboutputtask = int(mainoutputtask), int(suboutputtask)
     if suboutputtask == mainoutputtask:
-        return number(bot, inputs, outputtask, mainoutputtask, suboutputtask)
+        return number(inputs, outputtask, mainoutputtask, suboutputtask)
     if suboutputtask < mainoutputtask:
         return []
     if mainoutputtask < 0:
@@ -290,35 +290,35 @@ def rangebetween(bot, inputs, outputtask, mainoutputtask, suboutputtask):
         suboutputtask = len(inputs)
     newlist = []
     for i in range(mainoutputtask, suboutputtask + 1):
-        newlist.append(str(number(bot, inputs, outputtask, i, suboutputtask)))
+        newlist.append(str(number(inputs, outputtask, i, suboutputtask)))
     if newlist == []:
         return ''
     return ' '.join(newlist)
 
 
 # Forward Range includes index number
-def incrange_plus(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def incrange_plus(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
-    return rangebetween(bot, inputs, outputtask, int(mainoutputtask), len(inputs))
+    return rangebetween(inputs, outputtask, int(mainoutputtask), len(inputs))
 
 
 # Reverse Range includes index number
-def incrange_minus(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def incrange_minus(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
-    return rangebetween(bot, inputs, outputtask, 1, int(mainoutputtask))
+    return rangebetween(inputs, outputtask, 1, int(mainoutputtask))
 
 
 # Forward Range excludes index number
-def excrange_plus(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def excrange_plus(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
-    return rangebetween(bot, inputs, outputtask, int(mainoutputtask) + 1, len(inputs))
+    return rangebetween(inputs, outputtask, int(mainoutputtask) + 1, len(inputs))
 
 
 # Reverse Range excludes index number
-def excrange_minus(bot, inputs, outputtask, mainoutputtask, suboutputtask):
+def excrange_minus(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
-    return rangebetween(bot, inputs, outputtask, 1, int(mainoutputtask) - 1)
+    return rangebetween(inputs, outputtask, 1, int(mainoutputtask) - 1)
