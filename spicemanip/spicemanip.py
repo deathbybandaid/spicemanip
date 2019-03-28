@@ -3,7 +3,7 @@
 import random
 
 
-def main(inputs, outputtask, output_type='default'):
+def spicemanip(inputs, outputtask, output_type='default'):
 
     mainoutputtask, suboutputtask = None, None
 
