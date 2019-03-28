@@ -322,3 +322,7 @@ def excrange_minus(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
         return ''
     return rangebetween(inputs, outputtask, 1, int(mainoutputtask) - 1)
+
+
+if __name__ == '__main__':
+    spicemanip(inputs, outputtask, output_type='default')
