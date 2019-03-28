@@ -336,5 +336,5 @@ def spicemanip_excrange_minus(inputs, outputtask, mainoutputtask, suboutputtask)
     return spicemanip_rangebetween(inputs, outputtask, 1, int(mainoutputtask) - 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(inputs, outputtask, output_type='default')
