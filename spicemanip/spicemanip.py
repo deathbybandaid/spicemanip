@@ -3,7 +3,7 @@
 import random
 
 
-def spicemanip(inputs, outputtask, output_type='default'):
+def main(inputs, outputtask, output_type='default'):
 
     mainoutputtask, suboutputtask = None, None
 
@@ -325,4 +325,4 @@ def excrange_minus(inputs, outputtask, mainoutputtask, suboutputtask):
 
 
 if __name__ == '__main__':
-    spicemanip(inputs, outputtask, output_type='default')
+    main(inputs, outputtask, output_type='default')
