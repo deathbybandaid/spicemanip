@@ -223,6 +223,12 @@ def spicemanip_list(inputs, outputtask, mainoutputtask, suboutputtask):
     return ', '.join(str(x) for x in inputs)
 
 
+def spicemanip_list_nospace(inputs, outputtask, mainoutputtask, suboutputtask):
+    if inputs == []:
+        return ''
+    return ','.join(str(x) for x in inputs)
+
+
 # comma seperated list with and
 def spicemanip_andlist(inputs, outputtask, mainoutputtask, suboutputtask):
     if inputs == []:
