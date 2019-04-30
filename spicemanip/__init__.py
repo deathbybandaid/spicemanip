@@ -23,8 +23,8 @@ def main(inputs, outputtask, output_type='default'):
     # Input needs to be a list, but don't split a word into letters
     if not inputs:
         inputs = []
-    if isinstance(inputs, collections.abc.KeysView):
-        inputs = [x for x in inputs]
+    if isinstance(inputs, collections.abc.KeysView) or isinstance(inputs, dict):
+        inputs = list(inputs.keys())
     if not isinstance(inputs, list):
         inputs = list(inputs.split(" "))
         inputs = [x for x in inputs if x and x not in ['', ' ']]
