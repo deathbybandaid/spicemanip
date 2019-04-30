@@ -24,7 +24,7 @@ def main(inputs, outputtask, output_type='default'):
     if not inputs:
         inputs = []
     if isinstance(inputs, collections.abc.KeysView) or isinstance(inputs, dict):
-        inputs = list(inputs.keys())
+        inputs = list(inputs)
     if not isinstance(inputs, list):
         inputs = list(inputs.split(" "))
         inputs = [x for x in inputs if x and x not in ['', ' ']]
