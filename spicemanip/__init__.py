@@ -5,7 +5,7 @@
 
 __author__ = """Sam Zick"""
 __email__ = 'sam@deathbybandaid.net'
-__version__ = '0.1.4'
+__version__ = '0.1.5'
 
 import random
 import collections
